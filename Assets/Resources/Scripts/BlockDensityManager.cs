@@ -48,7 +48,7 @@ public class BlockDensityManager : MonoBehaviour
 
     void InstantiateObject(float x, float y)
     {
-        GameObject obj = Instantiate(spawnable_object, transform);
+        GameObject obj = Instantiate(BiomeManager.instance.GetDecoration(), transform);
         obj.transform.position = new Vector3(transform.position.x + x, 0f, transform.position.z + y);
     }
 
