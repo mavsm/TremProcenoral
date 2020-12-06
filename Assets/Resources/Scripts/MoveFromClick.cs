@@ -28,6 +28,11 @@ public class MoveFromClick : MonoBehaviour
     {
         // Move our position a step closer to the target.
         float step =  speed * Time.deltaTime; // calculate distance to move
+        if ((transform.position - targetPos).magnitude < .1){
+            Events.instance.StoppedMoving();
+        }
+
         transform.position = Vector3.MoveTowards(transform.position, targetPos, step);
+
     }
 }

@@ -14,7 +14,6 @@ public class LookAtClick : MonoBehaviour
      
 
     void Start(){
-        print("B");
         Events.instance.onFloorClicked += LookAt;
     }
     void OnDestroy(){

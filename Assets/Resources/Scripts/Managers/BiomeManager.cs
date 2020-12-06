@@ -56,7 +56,6 @@ public class BiomeManager : MonoBehaviour
         }
 
         currentGeneratedItemsCount += 1;
-        print(currentGeneratedItemsCount);
         return biome.decorations[lastGeneratedItemIndex].prefab;
     }
 

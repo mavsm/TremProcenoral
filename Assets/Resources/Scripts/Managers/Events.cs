@@ -10,13 +10,19 @@ public class Events : MonoBehaviour
     void Awake()
     {
         instance = this;
-        print("A");
     }
 
     public event Action<Vector3> onFloorClicked;
     public void FloorClicked(Vector3 pos){
         if(onFloorClicked != null){
             onFloorClicked(pos);
+        }
+    }
+
+    public event Action onTrainStoppedMoving;
+    public void StoppedMoving(){
+        if(onTrainStoppedMoving != null){
+            onTrainStoppedMoving();
         }
     }
 
