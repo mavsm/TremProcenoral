@@ -5,16 +5,19 @@ using UnityEngine;
 public class TrainTrackContainer : MonoBehaviour
 {
     [SerializeField] private Transform trainFront;
+    [SerializeField] private Transform trainTransform;
     
 
     [SerializeField] private List<GameObject> tracks = new List<GameObject>();
+
+    [SerializeField] private float timeBetweenMoves = 0.5f;
 
     private int currentLastTrackIndex = 0;
     private bool isMoving = false;
     private Coroutine movingCoroutine;
 
     private void Start(){
-        print(transform.position);
+        // print(transform.position);
         Events.instance.onTrainStoppedMoving += TrainStopMoving;
         Events.instance.onFloorClicked += TrainBegunMoving;
     }
@@ -40,7 +43,7 @@ public class TrainTrackContainer : MonoBehaviour
         yield return null; //idle frame
         SetNextTrack();
         while(isMoving){
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(timeBetweenMoves);
             SetNextTrack();
         }
     }
@@ -51,6 +54,7 @@ public class TrainTrackContainer : MonoBehaviour
         Vector3 newPos = trainFront.position;
         newPos.y = lastTrack.transform.position.y;
         lastTrack.transform.position = newPos;
+        lastTrack.transform.rotation = trainTransform.rotation;
 
         currentLastTrackIndex = (currentLastTrackIndex+1)%tracks.Count;
     }

@@ -377,6 +377,7 @@ MonoBehaviour:
   - {fileID: 1551335481}
   - {fileID: 1414062282}
   - {fileID: 993188979}
+  timeBetweenMoves: 0.25
 --- !u!4 &257811003
 Transform:
   m_ObjectHideFlags: 0
