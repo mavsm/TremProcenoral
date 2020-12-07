@@ -370,6 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trainFront: {fileID: 956623656}
+  trainTransform: {fileID: 661587921}
   tracks:
   - {fileID: 1193011766}
   - {fileID: 56340788}
