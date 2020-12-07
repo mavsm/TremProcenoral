@@ -31,7 +31,12 @@ public class BlockDensityManager : MonoBehaviour
     }
 
 
-    void PopulateArea()
+    public void AreaCycled(Vector2 difference){
+        noise_initial_position_offset += difference;
+        PopulateArea();
+    }
+
+    private void PopulateArea()
     {
         for(float x_pos = 0f; x_pos < area_size.x; x_pos += x_step){
             float perlin_x = noise_initial_position_offset.x + x_pos;
