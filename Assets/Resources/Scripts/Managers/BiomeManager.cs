@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,10 +41,17 @@ public class BiomeManager : MonoBehaviour
             if(Random.value <= .5){
                 //change biome
                 currentGeneratedItemsCount = 0;
-                currentBiome = (currentBiome+1)%2; //since rn we only have 2 biomes
+                int prevBiome = currentBiome;
+                currentBiome = Random.Range(0, generationMatrix.Count);
+                if(prevBiome == currentBiome){
+                    currentBiome = (prevBiome+1)%generationMatrix.Count;
+                }
             }
         }
         BiomeObject biome = generationMatrix[currentBiome];
+        if(lastGeneratedItemIndex >= biome.decorations.Count){
+            lastGeneratedItemIndex = 0;
+        }
         BiomeDecoration lastDecoration = biome.decorations[lastGeneratedItemIndex];
         float value = Random.value;
         for(int i = 0; i < lastDecoration.chanceArray.Count; i++){
