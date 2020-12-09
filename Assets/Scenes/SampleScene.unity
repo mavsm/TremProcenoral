@@ -1091,7 +1091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c01e5c81d1b834aa5dfb19bd4c4046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minObjectsToSwitch: 10
+  minObjectsToSwitch: 25
   generationMatrix:
   - name: GreenWoods
     decorations:
@@ -1107,6 +1107,29 @@ MonoBehaviour:
         type: 3}
       chanceArray:
       - 1
+  - name: TestLakes
+    decorations:
+    - name: LakeNormal
+      prefab: {fileID: 5266079635823785526, guid: 537bfb8a656f44b4ea11c7a98635e94c,
+        type: 3}
+      chanceArray:
+      - 0
+      - 0.5
+      - 0.5
+    - name: LakePerspective
+      prefab: {fileID: 1313103720261752082, guid: 519b33a5f11434b479b6325598ed3e03,
+        type: 3}
+      chanceArray:
+      - 0.5
+      - 0
+      - 0.5
+    - name: LakeDistorted
+      prefab: {fileID: 764838304576878547, guid: a99b369b879fd2548ab5cdac07623f65,
+        type: 3}
+      chanceArray:
+      - 0.5
+      - 0.5
+      - 0
 --- !u!4 &1427012020 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 398941759949486588, guid: 4fe83d19c1fb13e4182c5efcc56d68b1,

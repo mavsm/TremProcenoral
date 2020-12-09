@@ -32,8 +32,15 @@ public class BlockDensityManager : MonoBehaviour
 
 
     public void AreaCycled(Vector2 difference){
+        ClearChildren();
         noise_initial_position_offset += difference;
         PopulateArea();
+    }
+
+    private void ClearChildren(){
+        foreach (Transform child in transform) {
+           GameObject.Destroy(child.gameObject);
+        }
     }
 
     private void PopulateArea()
