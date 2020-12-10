@@ -16,6 +16,7 @@ public class MeshGenerator : MonoBehaviour
     private Mesh mesh;
     private Vector3[] vertices;
     private int[] triangles;
+    private Color[] colors;
 
     private Vector2 targetPos;
 
@@ -50,12 +51,16 @@ public class MeshGenerator : MonoBehaviour
 
     private void CreateTerrain(){
         vertices = new Vector3[(xSize+1) * (zSize+1)];
+        colors = new Color[(xSize+1) * (zSize+1)];
 
         for(int i=0, z=0; z <= zSize; z++){
             for(int x=0; x <= xSize; x++){
-                float y = Mathf.PerlinNoise((perlinOffset.x + x), (perlinOffset.y + z)) * maxHeight;
+                float y = Mathf.PerlinNoise((perlinOffset.x + x)*.3f, (perlinOffset.y + z)*.3f) * maxHeight;
                 vertices[i] = new Vector3(x, y, z);
+                
+                colors[i] = new Color(x/(float)xSize, z/(float)zSize, 1.0f, i/(float)((xSize+1) * (zSize+1)));
                 i++;
+
             }
         }
 
@@ -77,6 +82,8 @@ public class MeshGenerator : MonoBehaviour
             }
             vert++;
         }
+
+
     }
 
     void UpdateMeshTerrain(){
@@ -84,6 +91,7 @@ public class MeshGenerator : MonoBehaviour
 
         mesh.vertices = vertices;
         mesh.triangles = triangles;
+        mesh.colors = colors;
 
         mesh.RecalculateNormals();
     }
