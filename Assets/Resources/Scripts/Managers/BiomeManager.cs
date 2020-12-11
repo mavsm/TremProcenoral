@@ -10,6 +10,7 @@ public class BiomeManager : MonoBehaviour
     [System.Serializable]
     public class BiomeObject {
         public string name;
+        public Color groundColor;
         public List<BiomeDecoration> decorations = new List<BiomeDecoration>();
     }
     [System.Serializable]
@@ -31,9 +32,16 @@ public class BiomeManager : MonoBehaviour
     private int lastGeneratedItemIndex = 0;
     private int currentGeneratedItemsCount = 0;
 
+    public List<BlockDensityManager> biomeBlocks;
+
     void Awake()
     {
         instance = this;
+        biomeBlocks = new List<BlockDensityManager>();
+    }
+
+    public string GetLastChosenBiome(){
+        return generationMatrix[currentBiome].name;
     }
 
     public GameObject GetDecoration(){
@@ -66,5 +74,15 @@ public class BiomeManager : MonoBehaviour
         return biome.decorations[lastGeneratedItemIndex].prefab;
     }
 
+    public Color GetColorAtPos(Vector3 pos){
+        foreach(BlockDensityManager block in biomeBlocks){
+            if(block.HasPoint(pos)){
+                foreach(BiomeObject biome in generationMatrix){
+                    if(biome.name == block.biome) return biome.groundColor;
+                }
+            }
+        }
+        return Color.white;
+    }
 
 }

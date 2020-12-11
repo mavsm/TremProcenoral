@@ -16,17 +16,17 @@ public class BlockDensityManager : MonoBehaviour
     [SerializeField] public Vector2 area_size = new Vector2(10, 10);
     [SerializeField] float x_step = 0.1f;
     [SerializeField] float y_step = 0.1f;
-    // [SerializeField] float min_density_multiplier = 0.1f;
-    // [SerializeField] float max_density_multiplier = 1;
     [SerializeField] float max_chance = 0.8f;
 
+    public string biome;
 
-    [Header("Spawnable GameObjects")]
-    [SerializeField] GameObject spawnable_object;
+
+    private Dictionary<string, int> biomeNum = new Dictionary<string, int>();
 
     // Start is called before the first frame update
     void Start()
     {
+        BiomeManager.instance.biomeBlocks.Add(this);
         PopulateArea();
     }
 
@@ -41,6 +41,7 @@ public class BlockDensityManager : MonoBehaviour
         foreach (Transform child in transform) {
            GameObject.Destroy(child.gameObject);
         }
+        biomeNum.Clear();
     }
 
     private void PopulateArea()
@@ -56,12 +57,38 @@ public class BlockDensityManager : MonoBehaviour
 
             }
         }
+        foreach(string key in biomeNum.Keys){
+            if(biomeNum[key] > biomeNum[biome]){
+                biome = key;
+            }
+        }
     }
 
     void InstantiateObject(float x, float y)
     {
         GameObject obj = Instantiate(BiomeManager.instance.GetDecoration(), transform);
+        string gennedBiome = BiomeManager.instance.GetLastChosenBiome();
+        if(biomeNum.ContainsKey(gennedBiome)){
+            biomeNum[gennedBiome]++;
+        }
+        else{
+            biome = gennedBiome;
+            biomeNum.Add(gennedBiome, 1);
+        }
         obj.transform.position = new Vector3(transform.position.x + x, 0f, transform.position.z + y);
+    }
+
+    public bool HasPoint(Vector3 pos){
+        if(pos.x >= transform.position.x && pos.x < transform.position.x + area_size.x &&
+            pos.z >= transform.position.z && pos.z < transform.position.z + area_size.y){
+                return true;
+            }
+        // Vector3 center = new Vector3(transform.position.x + area_size.x/2.0f, transform.position.y, transform.position.z + area_size.y/2.0f);
+        // // print((pos - center).magnitude);
+        // if((pos - center).magnitude < 9.0f){
+        //     return true;
+        // }
+        return false;
     }
 
 }

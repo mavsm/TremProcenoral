@@ -173,7 +173,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 03d20c9cd44fc534abdb27e88c8605fb, type: 2}
+  - {fileID: 2100000, guid: 3ab1f5d3ebd661243af848b03f18390d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -348,7 +348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &491073641
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -638,7 +638,7 @@ PrefabInstance:
     - target: {fileID: 398941759949486589, guid: 4fe83d19c1fb13e4182c5efcc56d68b1,
         type: 3}
       propertyPath: max_chance
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fe83d19c1fb13e4182c5efcc56d68b1, type: 3}
@@ -717,7 +717,7 @@ PrefabInstance:
     - target: {fileID: 398941759949486589, guid: 4fe83d19c1fb13e4182c5efcc56d68b1,
         type: 3}
       propertyPath: max_chance
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fe83d19c1fb13e4182c5efcc56d68b1, type: 3}
@@ -801,7 +801,7 @@ PrefabInstance:
     - target: {fileID: 398941759949486589, guid: 4fe83d19c1fb13e4182c5efcc56d68b1,
         type: 3}
       propertyPath: max_chance
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fe83d19c1fb13e4182c5efcc56d68b1, type: 3}
@@ -1001,7 +1001,7 @@ PrefabInstance:
     - target: {fileID: 398941759949486589, guid: 4fe83d19c1fb13e4182c5efcc56d68b1,
         type: 3}
       propertyPath: max_chance
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fe83d19c1fb13e4182c5efcc56d68b1, type: 3}
@@ -1091,7 +1091,7 @@ PrefabInstance:
     - target: {fileID: 398941759949486589, guid: 4fe83d19c1fb13e4182c5efcc56d68b1,
         type: 3}
       propertyPath: max_chance
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fe83d19c1fb13e4182c5efcc56d68b1, type: 3}
@@ -1170,7 +1170,7 @@ PrefabInstance:
     - target: {fileID: 398941759949486589, guid: 4fe83d19c1fb13e4182c5efcc56d68b1,
         type: 3}
       propertyPath: max_chance
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fe83d19c1fb13e4182c5efcc56d68b1, type: 3}
@@ -1217,9 +1217,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c01e5c81d1b834aa5dfb19bd4c4046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minObjectsToSwitch: 25
+  minObjectsToSwitch: 50
   generationMatrix:
   - name: GreenWoods
+    groundColor: {r: 0, g: 0, b: 0, a: 0}
     decorations:
     - name: GreenTree
       prefab: {fileID: 2412878429211803822, guid: 445e493911bc0b24c9ec3a039193a364,
@@ -1227,35 +1228,337 @@ MonoBehaviour:
       chanceArray:
       - 1
   - name: OrangeWoods
+    groundColor: {r: 0, g: 0, b: 0, a: 0}
     decorations:
     - name: OrangeTree
       prefab: {fileID: 1867940786078485652, guid: 96463e149ff51b142a9ca5f3942943c4,
         type: 3}
       chanceArray:
       - 1
-  - name: TestLakes
+  - name: Swamp
+    groundColor: {r: 0, g: 0, b: 0, a: 0}
     decorations:
-    - name: LakeNormal
-      prefab: {fileID: 5266079635823785526, guid: 537bfb8a656f44b4ea11c7a98635e94c,
+    - name: SwampBigMush
+      prefab: {fileID: 4552678153326203244, guid: a7264e584acc0e24e971f7db5dcc9eb5,
         type: 3}
       chanceArray:
       - 0
-      - 0.5
-      - 0.5
-    - name: LakePerspective
-      prefab: {fileID: 1313103720261752082, guid: 519b33a5f11434b479b6325598ed3e03,
+      - 0.02
+      - 0.02
+      - 0.01
+      - 0.025
+      - 0.025
+      - 0.025
+      - 0.025
+      - 0.2
+      - 0.2
+      - 0.2
+      - 0.2
+      - 0.01
+      - 0.01
+      - 0.01
+      - 0.02
+    - name: SwampGrass1
+      prefab: {fileID: 5364728308751004711, guid: e1523c6ff1e35a443bd997f67a909106,
         type: 3}
       chanceArray:
-      - 0.5
+      - 0.001
+      - 0.049
+      - 0.1
+      - 0.1
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.05
       - 0
-      - 0.5
-    - name: LakeDistorted
-      prefab: {fileID: 764838304576878547, guid: a99b369b879fd2548ab5cdac07623f65,
+      - 0
+      - 0
+      - 0
+      - 0.1
+      - 0.15
+      - 0.15
+      - 0.15
+    - name: SwampGrass2
+      prefab: {fileID: 3848225466435905165, guid: c0880e353359c6744963b9571e8184c1,
         type: 3}
       chanceArray:
-      - 0.5
-      - 0.5
+      - 0.001
+      - 0.1
+      - 0.049
+      - 0.1
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.05
       - 0
+      - 0
+      - 0
+      - 0
+      - 0.1
+      - 0.15
+      - 0.15
+      - 0.15
+    - name: SwampGrass3
+      prefab: {fileID: 719332937434679720, guid: 5894e47b3184a0f4d9838cdc5b7e39b0,
+        type: 3}
+      chanceArray:
+      - 0.001
+      - 0.1
+      - 0.1
+      - 0.049
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0.1
+      - 0.15
+      - 0.15
+      - 0.15
+    - name: SwampLake1
+      prefab: {fileID: 8586512779005056150, guid: 61a3ef6c3f1c0364b8533c049c81b501,
+        type: 3}
+      chanceArray:
+      - 0
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.03
+      - 0.03
+      - 0.03
+      - 0.03
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.08
+    - name: SwampLake2
+      prefab: {fileID: 990814884653289607, guid: 7ddcd4122ca329a4e80aa0d760035587,
+        type: 3}
+      chanceArray:
+      - 0
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.03
+      - 0.03
+      - 0.03
+      - 0.03
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.08
+    - name: SwampLake3
+      prefab: {fileID: 527531218973981085, guid: a0a80ff7129d89a4c85b9567e797b837,
+        type: 3}
+      chanceArray:
+      - 0
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.03
+      - 0.03
+      - 0.03
+      - 0.03
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.08
+    - name: SwampLake4
+      prefab: {fileID: 7221115280721117745, guid: 2842c142e1bfacc47833d47477b73985,
+        type: 3}
+      chanceArray:
+      - 0
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.03
+      - 0.03
+      - 0.03
+      - 0.03
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.08
+      - 0.08
+    - name: SwampMush1
+      prefab: {fileID: 2669038568814808228, guid: 356b06baf3a512f4fac8c9110ee6ef54,
+        type: 3}
+      chanceArray:
+      - 0.01
+      - 0.06
+      - 0.06
+      - 0.06
+      - 0.03
+      - 0.03
+      - 0.03
+      - 0.03
+      - 0.03
+      - 0.1
+      - 0.1
+      - 0.1
+      - 0.09
+      - 0.09
+      - 0.09
+      - 0.09
+    - name: SwampMush2
+      prefab: {fileID: 257092424593019714, guid: 0a968712ecb9c6c44a5a71fac1f276d4,
+        type: 3}
+      chanceArray:
+      - 0.01
+      - 0.06
+      - 0.06
+      - 0.06
+      - 0.03
+      - 0.03
+      - 0.03
+      - 0.03
+      - 0.1
+      - 0.03
+      - 0.1
+      - 0.1
+      - 0.09
+      - 0.09
+      - 0.09
+      - 0.09
+    - name: SwampMush3
+      prefab: {fileID: 4318840059056338350, guid: f5b00ce5726b8f047983d4ba228decd4,
+        type: 3}
+      chanceArray:
+      - 0.01
+      - 0.06
+      - 0.06
+      - 0.06
+      - 0.03
+      - 0.03
+      - 0.03
+      - 0.03
+      - 0.1
+      - 0.1
+      - 0.03
+      - 0.1
+      - 0.09
+      - 0.09
+      - 0.09
+      - 0.09
+    - name: SwampMush4
+      prefab: {fileID: 1970451036985650200, guid: d7c9e1a1f4b319747ae2a9d954f67b50,
+        type: 3}
+      chanceArray:
+      - 0.01
+      - 0.06
+      - 0.06
+      - 0.06
+      - 0.03
+      - 0.03
+      - 0.03
+      - 0.03
+      - 0.1
+      - 0.1
+      - 0.1
+      - 0.03
+      - 0.09
+      - 0.09
+      - 0.09
+      - 0.09
+    - name: SwampPlant
+      prefab: {fileID: 4209858903720872357, guid: 1311de6e5153d26478a15af600df7387,
+        type: 3}
+      chanceArray:
+      - 0
+      - 0.1
+      - 0.1
+      - 0.1
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.01
+      - 0.01
+      - 0.01
+      - 0.02
+      - 0.1
+      - 0.15
+      - 0.1
+      - 0.1
+    - name: SwampPlant2
+      prefab: {fileID: 6144213749264086565, guid: 33006dbb1c66f8b4cacce3e8ffa9e555,
+        type: 3}
+      chanceArray:
+      - 0
+      - 0.1
+      - 0.1
+      - 0.1
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.01
+      - 0.01
+      - 0.01
+      - 0.02
+      - 0.1
+      - 0.1
+      - 0.15
+      - 0.1
+    - name: SwampTree
+      prefab: {fileID: 5525982241737765477, guid: da3ade6f1e702eb4a82e93ef29d77a42,
+        type: 3}
+      chanceArray:
+      - 0
+      - 0.2
+      - 0.2
+      - 0.2
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.01
+      - 0.01
+      - 0.01
+      - 0.02
+      - 0.1
+      - 0.1
+      - 0
+      - 0.05
+    - name: SwampTree2
+      prefab: {fileID: 269840075969153851, guid: 983baf746a38ec142854e43321cb29d5,
+        type: 3}
+      chanceArray:
+      - 0
+      - 0.2
+      - 0.2
+      - 0.2
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.01
+      - 0.01
+      - 0.01
+      - 0.02
+      - 0.1
+      - 0.1
+      - 0.05
+      - 0
+  biomeBlocks: []
 --- !u!4 &1427012020 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 398941759949486588, guid: 4fe83d19c1fb13e4182c5efcc56d68b1,
@@ -1337,7 +1640,7 @@ PrefabInstance:
     - target: {fileID: 398941759949486589, guid: 4fe83d19c1fb13e4182c5efcc56d68b1,
         type: 3}
       propertyPath: max_chance
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fe83d19c1fb13e4182c5efcc56d68b1, type: 3}
@@ -1463,7 +1766,7 @@ PrefabInstance:
     - target: {fileID: 398941759949486589, guid: 4fe83d19c1fb13e4182c5efcc56d68b1,
         type: 3}
       propertyPath: max_chance
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fe83d19c1fb13e4182c5efcc56d68b1, type: 3}
@@ -1474,6 +1777,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 137830914440944795, guid: b41adcfb7f61aa443a6a7fd5fc49c3e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.25300002
+      objectReference: {fileID: 0}
     - target: {fileID: 137830914508427156, guid: b41adcfb7f61aa443a6a7fd5fc49c3e4,
         type: 3}
       propertyPath: trainFront
@@ -1543,6 +1851,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TrainTracks
+      objectReference: {fileID: 0}
+    - target: {fileID: 137830915378819546, guid: b41adcfb7f61aa443a6a7fd5fc49c3e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.742
+      objectReference: {fileID: 0}
+    - target: {fileID: 137830915443361689, guid: b41adcfb7f61aa443a6a7fd5fc49c3e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 137830915698232677, guid: b41adcfb7f61aa443a6a7fd5fc49c3e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.49099997
+      objectReference: {fileID: 0}
+    - target: {fileID: 137830915836341652, guid: b41adcfb7f61aa443a6a7fd5fc49c3e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.24299997
+      objectReference: {fileID: 0}
+    - target: {fileID: 137830916413700401, guid: b41adcfb7f61aa443a6a7fd5fc49c3e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.011999965
+      objectReference: {fileID: 0}
+    - target: {fileID: 2857259394992126113, guid: b41adcfb7f61aa443a6a7fd5fc49c3e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068922417965028759, guid: b41adcfb7f61aa443a6a7fd5fc49c3e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5995811750636548886, guid: b41adcfb7f61aa443a6a7fd5fc49c3e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.263
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b41adcfb7f61aa443a6a7fd5fc49c3e4, type: 3}
@@ -1616,7 +1964,7 @@ PrefabInstance:
     - target: {fileID: 398941759949486589, guid: 4fe83d19c1fb13e4182c5efcc56d68b1,
         type: 3}
       propertyPath: max_chance
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fe83d19c1fb13e4182c5efcc56d68b1, type: 3}

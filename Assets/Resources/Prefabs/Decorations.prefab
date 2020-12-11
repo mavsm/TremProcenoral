@@ -49,9 +49,8 @@ MonoBehaviour:
   area_size: {x: 10, y: 10}
   x_step: 0.5
   y_step: 0.5
-  max_chance: 0.1
-  spawnable_object: {fileID: 1867940786078485652, guid: 96463e149ff51b142a9ca5f3942943c4,
-    type: 3}
+  max_chance: 0.8
+  biome: 
 --- !u!114 &398941759949486591
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class MeshGenerator : MonoBehaviour
 
     [SerializeField] private float speed = 1.0f;
     public Vector2 perlinOffset;
+    [SerializeField] private float meshSegmentScale = 1f;
 
     public float maxHeight = 0.0f;
 
@@ -37,6 +38,11 @@ public class MeshGenerator : MonoBehaviour
         Events.instance.onFloorClicked -= SetTarget;
     }
 
+    public void UpdateMesh(){
+        
+        CreateTerrain();
+        UpdateMeshTerrain();
+    }
 
     // Update is called once per frame
     void Update()
@@ -44,8 +50,8 @@ public class MeshGenerator : MonoBehaviour
         float step =  speed * Time.deltaTime;
         perlinOffset = Vector2.MoveTowards(perlinOffset, targetPos, step);
 
-        CreateTerrain();
-        UpdateMeshTerrain();
+        // CreateTerrain();
+        // UpdateMeshTerrain();
     }
 
 
@@ -53,14 +59,19 @@ public class MeshGenerator : MonoBehaviour
         vertices = new Vector3[(xSize+1) * (zSize+1)];
         colors = new Color[(xSize+1) * (zSize+1)];
 
+        Color currentColor = Color.white;
+
         for(int i=0, z=0; z <= zSize; z++){
             for(int x=0; x <= xSize; x++){
-                float y = Mathf.PerlinNoise((perlinOffset.x + x)*.3f, (perlinOffset.y + z)*.3f) * maxHeight;
-                vertices[i] = new Vector3(x, y, z);
+                float y = Mathf.PerlinNoise((perlinOffset.x + x*meshSegmentScale)*.3f, (perlinOffset.y + z*meshSegmentScale)*.3f) * maxHeight;
+                vertices[i] = new Vector3(transform.position.x + x*meshSegmentScale, y, transform.position.z +  z*meshSegmentScale);
                 
-                colors[i] = new Color(x/(float)xSize, z/(float)zSize, 1.0f, i/(float)((xSize+1) * (zSize+1)));
+                
+                if(i%3 == 0){
+                    currentColor = BiomeManager.instance.GetColorAtPos(transform.TransformPoint(vertices[i]));//new Color(1.0f, z/(float)zSize, 1.0f, z/(float)zSize);
+                }
+                colors[i] = currentColor;
                 i++;
-
             }
         }
 
@@ -77,12 +88,28 @@ public class MeshGenerator : MonoBehaviour
                 triangles[tris+4] = vert + xSize + 1;
                 triangles[tris+5] = vert + xSize + 2;
 
+                // Color currentColor = BiomeManager.instance.GetColorAtPos(transform.TransformPoint(vertices[vert]));
+                // colors[vert + 0] = currentColor;
+                // colors[vert + xSize + 1]= currentColor;
+                // colors[vert + 1]= currentColor;
+                // colors[vert + 1]= currentColor;
+                // colors[vert + xSize + 1]= currentColor;
+                // colors[vert + xSize + 2]= currentColor;
+
                 vert++;
                 tris += 6;
             }
             vert++;
         }
 
+        // for (int i = 0; i < vertices.Length; i++) {
+        //     // Makes every vertex unique
+        //     // triangles[i] = i;
+        //     // Every third vertex randomly chooses new color
+        //     if(i % 3 == 0)
+        //         currentColor = BiomeManager.instance.GetColorAtPos(transform.TransformPoint(vertices[i]));
+        //     colors[i] = currentColor;
+        // }
 
     }
 
