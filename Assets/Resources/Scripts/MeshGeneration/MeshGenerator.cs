@@ -11,6 +11,8 @@ public class MeshGenerator : MonoBehaviour
     [SerializeField] private float speed = 1.0f;
     public Vector2 perlinOffset;
     [SerializeField] private float meshSegmentScale = 1f;
+    [SerializeField] private BlockDensityManager correspondingBlock;
+
 
     public float maxHeight = 0.0f;
 
@@ -21,9 +23,16 @@ public class MeshGenerator : MonoBehaviour
 
     private Vector2 targetPos;
 
+    private float initialY;
+    private float newY;
+
     // Start is called before the first frame update
     void Start()
     {
+        initialY = transform.position.y;
+
+        perlinOffset.x = transform.position.x;
+        perlinOffset.y = transform.position.z;
         
         targetPos = perlinOffset;
         Events.instance.onFloorClicked += SetTarget;
@@ -38,38 +47,46 @@ public class MeshGenerator : MonoBehaviour
         Events.instance.onFloorClicked -= SetTarget;
     }
 
+    private void Update(){
+        
+
+        UpdateMesh();
+    }
+
     public void UpdateMesh(){
         
+        // perlinOffset.x = transform.position.x;
+        // perlinOffset.y = transform.position.z;
+
         CreateTerrain();
         UpdateMeshTerrain();
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        float step =  speed * Time.deltaTime;
-        perlinOffset = Vector2.MoveTowards(perlinOffset, targetPos, step);
-
-        // CreateTerrain();
-        // UpdateMeshTerrain();
-    }
+    
 
 
     private void CreateTerrain(){
         vertices = new Vector3[(xSize+1) * (zSize+1)];
         colors = new Color[(xSize+1) * (zSize+1)];
 
-        Color currentColor = Color.white;
+        Color currentColor = BiomeManager.instance.GetColorOfBiome( correspondingBlock.biome );
 
         for(int i=0, z=0; z <= zSize; z++){
             for(int x=0; x <= xSize; x++){
-                float y = Mathf.PerlinNoise((perlinOffset.x + x*meshSegmentScale)*.3f, (perlinOffset.y + z*meshSegmentScale)*.3f) * maxHeight;
-                vertices[i] = new Vector3(transform.position.x + x*meshSegmentScale, y, transform.position.z +  z*meshSegmentScale);
-                
-                
-                if(i%3 == 0){
-                    currentColor = BiomeManager.instance.GetColorAtPos(transform.TransformPoint(vertices[i]));//new Color(1.0f, z/(float)zSize, 1.0f, z/(float)zSize);
+                Vector3 zPos = transform.TransformPoint(new Vector3(0f, 0f, z*meshSegmentScale));
+                if(zPos.z > 5){
+                    newY = initialY - (zPos.z - 5);
                 }
+                else if(zPos.z < -5){
+                    newY = initialY - (-5 - zPos.z);
+                }
+                else{
+                    newY = initialY;
+                }
+                float y = newY + Mathf.PerlinNoise((perlinOffset.x + x*meshSegmentScale)*.3f, (perlinOffset.y + z*meshSegmentScale)*.3f) * maxHeight;
+                vertices[i] = new Vector3(x*meshSegmentScale, y, z*meshSegmentScale);
+                
                 colors[i] = currentColor;
                 i++;
             }
@@ -88,28 +105,11 @@ public class MeshGenerator : MonoBehaviour
                 triangles[tris+4] = vert + xSize + 1;
                 triangles[tris+5] = vert + xSize + 2;
 
-                // Color currentColor = BiomeManager.instance.GetColorAtPos(transform.TransformPoint(vertices[vert]));
-                // colors[vert + 0] = currentColor;
-                // colors[vert + xSize + 1]= currentColor;
-                // colors[vert + 1]= currentColor;
-                // colors[vert + 1]= currentColor;
-                // colors[vert + xSize + 1]= currentColor;
-                // colors[vert + xSize + 2]= currentColor;
-
                 vert++;
                 tris += 6;
             }
             vert++;
         }
-
-        // for (int i = 0; i < vertices.Length; i++) {
-        //     // Makes every vertex unique
-        //     // triangles[i] = i;
-        //     // Every third vertex randomly chooses new color
-        //     if(i % 3 == 0)
-        //         currentColor = BiomeManager.instance.GetColorAtPos(transform.TransformPoint(vertices[i]));
-        //     colors[i] = currentColor;
-        // }
 
     }
 

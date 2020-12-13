@@ -82,12 +82,7 @@ public class BlockDensityManager : MonoBehaviour
         if(pos.x >= transform.position.x && pos.x < transform.position.x + area_size.x &&
             pos.z >= transform.position.z && pos.z < transform.position.z + area_size.y){
                 return true;
-            }
-        // Vector3 center = new Vector3(transform.position.x + area_size.x/2.0f, transform.position.y, transform.position.z + area_size.y/2.0f);
-        // // print((pos - center).magnitude);
-        // if((pos - center).magnitude < 9.0f){
-        //     return true;
-        // }
+        }
         return false;
     }
 
