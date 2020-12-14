@@ -76,7 +76,6 @@ public class BlockDensityManager : MonoBehaviour
             biomeNum.Add(gennedBiome, 1);
         }
         biome = gennedBiome;
-        print(biome);
         obj.transform.position = new Vector3(transform.position.x + x, 0f, transform.position.z + y);
     }
 

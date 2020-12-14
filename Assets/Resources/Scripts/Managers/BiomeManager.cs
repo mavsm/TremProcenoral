@@ -11,6 +11,8 @@ public class BiomeManager : MonoBehaviour
     public class BiomeObject {
         public string name;
         public Color groundColor;
+        public Color lightColor = Color.white;
+        public bool trainLight = false;
         public List<BiomeDecoration> decorations = new List<BiomeDecoration>();
     }
     [System.Serializable]
@@ -52,7 +54,6 @@ public class BiomeManager : MonoBehaviour
             if(biomeName == generationMatrix[i].name) currentBiome = i;
         }
         if( currentGeneratedItemsCount.ContainsKey(biomeName) && currentGeneratedItemsCount[biomeName] > minObjectsToSwitch){
-            print(currentGeneratedItemsCount[biomeName]);
             if(Random.value <= .5){
                 //change biome
                 currentGeneratedItemsCount[biomeName] = 0;
@@ -90,6 +91,28 @@ public class BiomeManager : MonoBehaviour
             }
         }
         return Color.white;
+    }
+
+    public Color GetLightColorAtPos(Vector3 pos){
+        foreach(BlockDensityManager block in biomeBlocks){
+            if(block.HasPoint(pos)){
+                foreach(BiomeObject biome in generationMatrix){
+                    if(biome.name == block.biome) return biome.lightColor;
+                }
+            }
+        }
+        return Color.white;
+    }
+    
+    public bool GetTrainLightModeAtPos(Vector3 pos){
+        foreach(BlockDensityManager block in biomeBlocks){
+            if(block.HasPoint(pos)){
+                foreach(BiomeObject biome in generationMatrix){
+                    if(biome.name == block.biome) return biome.trainLight;
+                }
+            }
+        }
+        return false;
     }
 
     public Color GetColorOfBiome( string selectedBiome ){
