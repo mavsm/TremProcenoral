@@ -8,7 +8,6 @@ public class MeshGenerator : MonoBehaviour
     [SerializeField] private int xSize;
     [SerializeField] private int zSize;
 
-    [SerializeField] private float speed = 1.0f;
     public Vector2 perlinOffset;
     [SerializeField] private float meshSegmentScale = 1f;
     [SerializeField] private BlockDensityManager correspondingBlock;

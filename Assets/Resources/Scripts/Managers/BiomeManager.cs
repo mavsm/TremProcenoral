@@ -30,7 +30,7 @@ public class BiomeManager : MonoBehaviour
    
     private int currentBiome = 0;
     private int lastGeneratedItemIndex = 0;
-    private int currentGeneratedItemsCount = 0;
+    private Dictionary<string, int> currentGeneratedItemsCount = new Dictionary<string, int>();
 
     public List<BlockDensityManager> biomeBlocks;
 
@@ -38,17 +38,24 @@ public class BiomeManager : MonoBehaviour
     {
         instance = this;
         biomeBlocks = new List<BlockDensityManager>();
+        foreach(BiomeObject biome in generationMatrix){
+            currentGeneratedItemsCount.Add(biome.name, 0);
+        }
     }
 
     public string GetLastChosenBiome(){
         return generationMatrix[currentBiome].name;
     }
 
-    public GameObject GetDecoration(){
-        if(currentGeneratedItemsCount > minObjectsToSwitch){
+    public GameObject GetDecoration(string biomeName){
+        for(int i=0; i<generationMatrix.Count; i++){
+            if(biomeName == generationMatrix[i].name) currentBiome = i;
+        }
+        if( currentGeneratedItemsCount.ContainsKey(biomeName) && currentGeneratedItemsCount[biomeName] > minObjectsToSwitch){
+            print(currentGeneratedItemsCount[biomeName]);
             if(Random.value <= .5){
                 //change biome
-                currentGeneratedItemsCount = 0;
+                currentGeneratedItemsCount[biomeName] = 0;
                 int prevBiome = currentBiome;
                 currentBiome = Random.Range(0, generationMatrix.Count);
                 if(prevBiome == currentBiome){
@@ -70,7 +77,7 @@ public class BiomeManager : MonoBehaviour
             value -= lastDecoration.chanceArray[i];
         }
 
-        currentGeneratedItemsCount += 1;
+        currentGeneratedItemsCount[biome.name] += 1;
         return biome.decorations[lastGeneratedItemIndex].prefab;
     }
 

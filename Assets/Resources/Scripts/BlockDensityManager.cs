@@ -4,10 +4,6 @@ using UnityEngine;
 
 
 
-/*
-    Should get the desired object from somewhere else. A controller that has a list of prefabs per biome
-*/
-
 
 public class BlockDensityManager : MonoBehaviour
 {
@@ -17,6 +13,8 @@ public class BlockDensityManager : MonoBehaviour
     [SerializeField] float x_step = 0.1f;
     [SerializeField] float y_step = 0.1f;
     [SerializeField] float max_chance = 0.8f;
+
+    [SerializeField] int index;
 
     public string biome;
 
@@ -57,7 +55,10 @@ public class BlockDensityManager : MonoBehaviour
 
             }
         }
+
+        // print(index);
         foreach(string key in biomeNum.Keys){
+            // print(key + " : " + biomeNum[key]);
             if(biomeNum[key] > biomeNum[biome]){
                 biome = key;
             }
@@ -66,15 +67,16 @@ public class BlockDensityManager : MonoBehaviour
 
     void InstantiateObject(float x, float y)
     {
-        GameObject obj = Instantiate(BiomeManager.instance.GetDecoration(), transform);
+        GameObject obj = Instantiate(BiomeManager.instance.GetDecoration(biome), transform);
         string gennedBiome = BiomeManager.instance.GetLastChosenBiome();
         if(biomeNum.ContainsKey(gennedBiome)){
-            biomeNum[gennedBiome]++;
+            biomeNum[gennedBiome] += 1;
         }
         else{
-            biome = gennedBiome;
             biomeNum.Add(gennedBiome, 1);
         }
+        biome = gennedBiome;
+        print(biome);
         obj.transform.position = new Vector3(transform.position.x + x, 0f, transform.position.z + y);
     }
 
