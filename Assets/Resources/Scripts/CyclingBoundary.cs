@@ -18,29 +18,29 @@ public class CyclingBoundary : MonoBehaviour
     
         if(transform.position.x > upperBounds.x) {
             float diff = transform.position.x - upperBounds.x;
-            newPos.x = lowerBounds.x + diff;
+            newPos.x = lowerBounds.x;// + diff;
             movementDiff.x = 10;
         }
         else if(transform.position.x < lowerBounds.x) {
             float diff = lowerBounds.x - transform.position.x;
-            newPos.x = upperBounds.x + diff;
+            newPos.x = upperBounds.x;// + diff;
             movementDiff.x = -10;
         }
         if(transform.position.z > upperBounds.y) {
             float diff = transform.position.z - upperBounds.y;
-            newPos.z = lowerBounds.y + diff;
+            newPos.z = lowerBounds.y;// + diff;
             movementDiff.y = 10;
         }
         else if(transform.position.z < lowerBounds.y) {
             float diff = lowerBounds.y - transform.position.z;
-            newPos.z = upperBounds.y + diff;
+            newPos.z = upperBounds.y;// + diff;
             movementDiff.y = -10;
         }
 
+        transform.position = newPos;
         if(movementDiff != Vector2.zero){
             cycledEvent.Invoke(movementDiff);
         }
-        transform.position = newPos;
     }
 }
 

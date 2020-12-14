@@ -85,4 +85,10 @@ public class BiomeManager : MonoBehaviour
         return Color.white;
     }
 
+    public Color GetColorOfBiome( string selectedBiome ){
+        foreach(BiomeObject biome in generationMatrix){
+            if(selectedBiome == biome.name) return biome.groundColor;
+        }
+        return Color.white;
+    }
 }
