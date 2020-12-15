@@ -11,6 +11,8 @@ public class Decoration : MonoBehaviour
 
     void Awake(){
         initialY = transform.position.y;
+        float newRot = (-5f+Random.value*10.0f);
+        transform.rotation *= Quaternion.AngleAxis(newRot, Vector3.up);
     }
     
     // Update is called once per frame
