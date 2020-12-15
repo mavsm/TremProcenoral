@@ -1968,7 +1968,7 @@ MonoBehaviour:
       - 0.2
       - 0.1
   - name: Lake
-    groundColor: {r: 0.15686275, g: 0.7490196, b: 0.627451, a: 0.77254903}
+    groundColor: {r: 0.15686275, g: 0.7490196, b: 0.627451, a: 0.45490196}
     lightColor: {r: 1, g: 0.9646201, b: 0.9198113, a: 1}
     trainLight: 0
     decorations:
@@ -2734,7 +2734,358 @@ MonoBehaviour:
       - 0.1
       - 0.05
       - 0
+  - name: Citrus
+    groundColor: {r: 0.7137255, g: 0.92156863, b: 0.39607844, a: 1}
+    lightColor: {r: 1, g: 0.9422945, b: 0.8726415, a: 1}
+    trainLight: 0
+    decorations:
+    - name: Carrot
+      prefab: {fileID: 4266660662270630955, guid: 4ad8051f1b930c2418d771cb656023a5,
+        type: 3}
+      chanceArray:
+      - 0
+      - 0.1
+      - 0.1
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0.2
+      - 0.2
+      - 0.2
+      - 0.2
+      - 0
+      - 0
+      - 0
+    - name: Lemon
+      prefab: {fileID: 8860074987453689988, guid: f86dccdb8310dfb49b77df5b08694252,
+        type: 3}
+      chanceArray:
+      - 0.01
+      - 0.09
+      - 0.2
+      - 0.1
+      - 0.1
+      - 0.1
+      - 0.1
+      - 0.025
+      - 0.025
+      - 0.025
+      - 0.025
+      - 0.05
+      - 0.05
+      - 0.1
+    - name: Lemon1
+      prefab: {fileID: 219034556776156320, guid: 8912b68e3be210d469f68d8e4ab12a36,
+        type: 3}
+      chanceArray:
+      - 0.01
+      - 0.2
+      - 0.09
+      - 0.1
+      - 0.1
+      - 0.1
+      - 0.1
+      - 0.025
+      - 0.025
+      - 0.025
+      - 0.025
+      - 0.05
+      - 0.05
+      - 0.1
+    - name: LemonHill
+      prefab: {fileID: 1313091486975227848, guid: ef8e1b0057dd0bb48b55813017a2e36b,
+        type: 3}
+      chanceArray:
+      - 0
+      - 0.05
+      - 0.05
+      - 0
+      - 0.15
+      - 0.15
+      - 0.1
+      - 0.075
+      - 0.075
+      - 0.075
+      - 0.075
+      - 0
+      - 0.1
+      - 0.1
+    - name: LemonHill1
+      prefab: {fileID: 5328722341646869715, guid: bdbff272748c44142b236de6a5642bf7,
+        type: 3}
+      chanceArray:
+      - 0
+      - 0.05
+      - 0.05
+      - 0.1
+      - 0
+      - 0.15
+      - 0.15
+      - 0.075
+      - 0.075
+      - 0.075
+      - 0.075
+      - 0
+      - 0.1
+      - 0.1
+    - name: LemonHill2
+      prefab: {fileID: 2817496867425745037, guid: 7c26985f4e334684cacee0a7e31d9bff,
+        type: 3}
+      chanceArray:
+      - 0
+      - 0.05
+      - 0.05
+      - 0.15
+      - 0.1
+      - 0
+      - 0.15
+      - 0.075
+      - 0.075
+      - 0.075
+      - 0.075
+      - 0
+      - 0.1
+      - 0.1
+    - name: LemonHill3
+      prefab: {fileID: 8562105836815670196, guid: 2cf63f714fe45274fa76b1ecadd1c6b6,
+        type: 3}
+      chanceArray:
+      - 0
+      - 0.05
+      - 0.05
+      - 0.15
+      - 0.15
+      - 0.1
+      - 0
+      - 0.075
+      - 0.075
+      - 0.075
+      - 0.075
+      - 0
+      - 0.1
+      - 0.1
+    - name: Orange
+      prefab: {fileID: 4934582374627051643, guid: 89ee26d765ad3024d84dd508cb358b38,
+        type: 3}
+      chanceArray:
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0.05
+      - 0.2
+      - 0.2
+      - 0.2
+      - 0
+      - 0.05
+      - 0.15
+    - name: Orange1
+      prefab: {fileID: 8159864367499843715, guid: 162180ce8ac98b545abfd9ebbd26743a,
+        type: 3}
+      chanceArray:
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0.2
+      - 0.05
+      - 0.2
+      - 0.2
+      - 0
+      - 0.05
+      - 0.15
+    - name: Orange2
+      prefab: {fileID: 5999349648993317249, guid: d0997c1e45ffc18459d0c0952e87bc36,
+        type: 3}
+      chanceArray:
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0.2
+      - 0.2
+      - 0.05
+      - 0.2
+      - 0
+      - 0.05
+      - 0.15
+    - name: Orange3
+      prefab: {fileID: 70850176055316532, guid: b6188d727321b7442a539192124874a9,
+        type: 3}
+      chanceArray:
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0.2
+      - 0.2
+      - 0.2
+      - 0.05
+      - 0
+      - 0.05
+      - 0.15
+    - name: LemonTreeBig
+      prefab: {fileID: 7592373057247732685, guid: ed7c26d3d94c2bb4292c52581baf18f5,
+        type: 3}
+      chanceArray:
+      - 0
+      - 0.1
+      - 0.1
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.025
+      - 0.025
+      - 0.025
+      - 0.025
+      - 0.1
+      - 0.2
+      - 0.2
+    - name: LemonTreeMid
+      prefab: {fileID: 8670377634272222369, guid: 106d795bdf281aa438413d873bce25bd,
+        type: 3}
+      chanceArray:
+      - 0
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.025
+      - 0.025
+      - 0.025
+      - 0.025
+      - 0.4
+      - 0.1
+      - 0.1
+    - name: LemonTreeSmall
+      prefab: {fileID: 1393141814233705245, guid: b312db52fa62cd540a94e9101e88f079,
+        type: 3}
+      chanceArray:
+      - 0
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.2
+      - 0.2
+      - 0.1
   biomeBlocks: []
+--- !u!1 &1394467680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1394467684}
+  - component: {fileID: 1394467683}
+  - component: {fileID: 1394467682}
+  - component: {fileID: 1394467681}
+  m_Layer: 0
+  m_Name: LakeBottom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!64 &1394467681
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394467680}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1394467682
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394467680}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 0f66360cf2af05647a3d2691bb8e0b40, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1394467683
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394467680}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1394467684
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394467680}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1427012020 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 398941759949486588, guid: 4fe83d19c1fb13e4182c5efcc56d68b1,
