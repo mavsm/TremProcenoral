@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3118,7 +3118,95 @@ MonoBehaviour:
       - 0.2
       - 0.2
       - 0.1
+  - name: Desert
+    groundColor: {r: 0.62352943, g: 0.49803922, b: 0.34509805, a: 1}
+    lightColor: {r: 0.9622642, g: 0.8199963, b: 0.78524387, a: 1}
+    trainLight: 0
+    decorations:
+    - name: BigRuins
+      prefab: {fileID: 2062717798658486903, guid: 1284e22b2f3b7f24195c4b53458ad409,
+        type: 3}
+      chanceArray:
+      - 0.01
+      - 0.1
+      - 0.1
+      - 0.09
+      - 0.1
+      - 0.3
+      - 0.3
+    - name: Cactus
+      prefab: {fileID: 6270467093933769225, guid: 2a2a8f244cfae35409a2be96ba867ab8,
+        type: 3}
+      chanceArray:
+      - 0.01
+      - 0.09
+      - 0.3
+      - 0.2
+      - 0.2
+      - 0.1
+      - 0.1
+    - name: Cactus1
+      prefab: {fileID: 8884637126134150294, guid: d9e6b7438a7f8f14b9cad2aff58e4cde,
+        type: 3}
+      chanceArray:
+      - 0.01
+      - 0.3
+      - 0.09
+      - 0.2
+      - 0.2
+      - 0.1
+      - 0.1
+    - name: Pole
+      prefab: {fileID: 7474376000111950255, guid: 0080618e4b2c81b4bb66490e3fee6877,
+        type: 3}
+      chanceArray:
+      - 0.005
+      - 0.3
+      - 0.3
+      - 0.045
+      - 0.05
+      - 0.15
+      - 0.15
+    - name: Pole1
+      prefab: {fileID: 3931416243191336295, guid: 87310f73d3c5de245914084a95ac82b4,
+        type: 3}
+      chanceArray:
+      - 0.005
+      - 0.3
+      - 0.3
+      - 0.05
+      - 0.045
+      - 0.15
+      - 0.15
+    - name: Ruins
+      prefab: {fileID: 5560137394124001626, guid: ce85e9239ff06524db7b6f633e98d2e1,
+        type: 3}
+      chanceArray:
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.15
+      - 0.15
+      - 0.25
+      - 0.3
+    - name: Ruins1
+      prefab: {fileID: 4264728558598307171, guid: 315df4859d48e2b4c8fb9512851cf9a7,
+        type: 3}
+      chanceArray:
+      - 0.05
+      - 0.05
+      - 0.05
+      - 0.15
+      - 0.15
+      - 0.3
+      - 0.25
   biomeBlocks: []
+  trainStation:
+    name: TrainStation
+    prefab: {fileID: 1062856464616667768, guid: e2f82c6916df4654d8308e98e1b2e6f4,
+      type: 3}
+    chanceArray: []
+  trainStationChance: 0.005
 --- !u!1 &1394467680
 GameObject:
   m_ObjectHideFlags: 0

@@ -36,6 +36,9 @@ public class BiomeManager : MonoBehaviour
 
     public List<BlockDensityManager> biomeBlocks;
 
+    [SerializeField] BiomeDecoration trainStation;
+    [SerializeField] float trainStationChance;
+
     void Awake()
     {
         instance = this;
@@ -50,6 +53,11 @@ public class BiomeManager : MonoBehaviour
     }
 
     public GameObject GetDecoration(string biomeName){
+        if(Random.value < trainStationChance){
+            currentGeneratedItemsCount[biomeName] += 1;
+            return trainStation.prefab;
+        }
+
         for(int i=0; i<generationMatrix.Count; i++){
             if(biomeName == generationMatrix[i].name) currentBiome = i;
         }
